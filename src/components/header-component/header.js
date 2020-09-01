@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import  './header.css';
+import headerLogo from '../../images/Header-Logo.png';
 import { fetchHomeData }from '../../actions/homeactions.js'
 class Header extends React.Component {
 
@@ -8,7 +10,14 @@ class Header extends React.Component {
     }
 render(){
     console.log(this.props)
-    return (<div></div>)
+    return (<div className="headerSection">
+        <div className="container">
+        <div className="logo">
+            <img src={headerLogo} className="logo-image"/>
+        </div>
+        </div>
+
+    </div>)
 }
 }
 

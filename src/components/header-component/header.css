@@ -1,0 +1,24 @@
+.headerSection {
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: 75% 0;
+    background-size: cover!important;
+    background-color: #fafafa;
+    z-index: 100;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-image: url('../../images/Header-Banner.png');
+}
+
+.logo-image {
+    height: 130px;
+    position: relative;
+    left: 175px;
+}
+
+@media (max-width: 760px){
+.logo-image {
+   left:10px;
+   height:100px;
+}
+}
