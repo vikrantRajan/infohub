@@ -9,4 +9,11 @@ export function fetchHomeData() {
           })
     }
 }
+
+export function setActiveid(id) {
+  return function(dispatch) {
+    dispatch({type:"ACTIVEID", payload:id})
+
+  }
+}
  

@@ -3,6 +3,7 @@ export default function reducer(state = {
     fetched:false,
     categories:[],
     posts:[],
+    activeId:[1],
     error:""  
 },action) {
         if(action.type == "FETCH_START") {
@@ -10,6 +11,10 @@ export default function reducer(state = {
         }
         if(action.type == "HOME") {
           state = { ...state, fetching: false,fetched:true,categories:action.payload.categories,posts:action.payload.posts };
+        }
+
+        if(action.type == "ACTIVEID") {
+          state = { ...state, fetching: false,activeId: action.payload };
         }
         if(action.type == "ERROR") {
           state = { ...state, fetching: false,error:action.payload };
