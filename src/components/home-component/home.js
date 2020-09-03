@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { CardColumns,Card } from 'react-bootstrap';
 import  './home.css';
 import { fetchHomeData, setActiveid }from '../../actions/homeactions.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-regular-svg-icons'
 class Home extends React.Component {
 
     componentWillMount() {
@@ -33,11 +36,34 @@ render(){
     const filterUI = this.props.categories.map((element,index) =>{
         return( <span className="filterItem"> <a className={this.props.activeId.includes(element.id) ? "filterSelected" : "filter" } onClick={()=> this.applyFilter(element.id,index)}>{element.name}</a></span>)
     });
+
+    const postsUI = this.props.posts.map((element,index) =>{
+        return(<Card>
+            <Card.Img variant="top" src={element.image} />
+            <Card.Body>
+              <Card.Title>{element.title}</Card.Title>
+              <Card.Text>
+                {element.description}
+              </Card.Text>
+              <Card.Text>
+              <span className="cat float-left">{element.category.name}</span> <a href="https://jevelin.shufflehound.com/blog1/2016/11/23/trip-that-youll-never-forget/#comments" className="comment-count">
+                          <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
+                            {element.comments}                </a>
+              </Card.Text>
+            </Card.Body>
+          </Card>)
+    })
     return (<div className="homeSection">
-        <div className="filter-section">
-            <div className="filters">
-               {filterUI}
+        <div className="filter-section row">
+            <div className="categories w-100">
+        <input type="text" className="searchBox d-inline-block" name="search"></input>
+              <div className="filters"> {filterUI} </div>
             </div>
+        </div>
+        <div className="postList pt-5">
+        <CardColumns>
+ {postsUI}
+  </CardColumns>
         </div>
     </div>)
 }

@@ -1,3 +1,7 @@
+.filter-section .filters {
+    display: inline-block;
+}
+
 .filter-section .filters .filterItem {
     border-width: 0!important;
     padding: 5px 8px;
@@ -31,4 +35,95 @@
     border-radius: 100px;
     transition: .3s background,font-weight ease-in-out;
     cursor: pointer;
+}
+
+.searchBox {
+    width: 50px;
+    /* box-sizing: border-box; */
+    border: 0;
+    border-radius: 4px;
+    /* font-size: 16px; */
+    /* background-color: white; */
+    background-image: url('../../images/svg-search-blue.svg');
+    /* background-position: 10px 10px; */
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    /* transition: width 0.4s ease-in-out; */
+}
+.searchBox:focus{
+    width:100%;
+}
+  .searchBox:focus + .filters{
+    display: none;
+  }
+
+.card-body {
+    /* box-shadow: 0px 0px 10px grey; */
+    transition: .3s all ease-in-out;
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-top: 32px;
+    background-color: #fff;
+    box-shadow: 0px 15px 45px -9px rgba(0,0,0,.2);
+    text-align: center;
+}
+
+.card-title {
+    font-size: 28px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+    line-height: 100%!important;
+    text-align: left;
+}
+
+.card-text {
+    padding-bottom: 28px;
+    word-break: break-word;
+    text-align: left;
+    color: #8d8d8d;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.card-title:hover {
+    color: #47c9e5!important;
+    cursor: pointer;
+}
+
+.card-text:last-child {
+    margin-left: -18%;
+    margin-right: 92px;
+    padding: 19px 0 19px 18%;
+    position: relative;
+    border-top: 1px solid #ccc;
+}
+
+
+.comment-count {
+    background-color: #f6f6f6;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: -20px;
+    right: -92px;
+    padding: 0 17px;
+    border-radius: 100px;
+    transition: .3s all ease-in-out;
+    float: right;
+    color: #8d8d8d!important;
+}
+
+.comment-count:hover {
+    background-color: #47c9e5;
+    text-decoration:none;
+    color:white!important;
+}
+
+.card:hover .card-body {
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,.06);
+}
+
+.card {
+    transition: .3s all ease-in-out;
+    margin: 0 15px;
 }
