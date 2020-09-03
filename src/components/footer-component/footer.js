@@ -1,10 +1,13 @@
 import React from 'react'
 import './footer.css';
 import footerLogo from '../../images/Footer-Logo.png';
+import ScrollArrow from './scroll';
 class Footer extends React.Component {
 
 render(){
+    
     return (<footer className="footerSection">
+        <ScrollArrow/>
         <div className="container">
         <div className="footer-logo">
             <img src={footerLogo} className="footer-logo-image"/>
