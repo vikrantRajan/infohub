@@ -3,15 +3,16 @@ export default function reducer(state = {
     fetched:false,
     categories:[],
     posts:[],
+    filteredPosts:[],
     loadCount:1,
-    activeId:[],
+    activeId:["1"],
     error:""  
 },action) {
         if(action.type === "FETCH_START") {
           state = { ...state, fetching: true };
         }
         if(action.type === "HOME") {
-          state = { ...state, fetching: false,fetched:true,categories:action.payload.categories,posts:action.payload.posts };
+          state = { ...state, fetching: false,fetched:true,categories:action.payload.categories,posts:action.payload.posts, filteredPosts:action.payload.posts };
         }
 
         if(action.type === "ACTIVEID") {
@@ -19,7 +20,7 @@ export default function reducer(state = {
         }
 
         if(action.type === "FILTER") {
-          state = { ...state, fetching: false,posts: action.payload };
+          state = { ...state, fetching: false,filteredPosts: action.payload };
         }
 
         if(action.type === "LOADCOUNT") {

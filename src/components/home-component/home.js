@@ -16,6 +16,14 @@ class Home extends React.Component {
       this.props.dispatch(fetchHomeData());
   }
 
+  onSearch = (e) => {
+    const text= e.target.value.toLowerCase();
+     const filteredData = this.props.posts.filter((p) => p.title.toLowerCase().includes(text) ||
+     p.post.toLowerCase().includes(text) ||
+     p.author.toLowerCase().includes(text)); 
+     this.props.dispatch(setFilterData(filteredData));
+  }
+
   applyFilter = (id,index) =>{
       if( id !== "1") {
           if(this.props.activeId.includes("1")) {
@@ -33,7 +41,7 @@ class Home extends React.Component {
       else {
           this.props.activeId.push(id);
   }
-  const filteredData = this.props.posts.filter((p) => this.props.activeId.includes(p.catId));
+      const filteredData =  this.props.activeId.length > 0 && id !== '1'? this.props.posts.filter((p) => this.props.activeId.includes(p.catId)) : this.props.posts;
       this.props.dispatch(setFilterData(filteredData));
 
       this.props.dispatch(setActiveid( [...this.props.activeId] ));
@@ -50,6 +58,9 @@ class Home extends React.Component {
         <Card>
           <Card.Img variant="top" src={config.IMG + element.image} />
           <Card.Body>
+          <Card.Text>
+              by {element.author}
+            </Card.Text>
             <Card.Title>{element.title}</Card.Title>
             <Card.Text>
               {element.post}
@@ -79,7 +90,7 @@ class Home extends React.Component {
       return( <span className="filterItem"> <a className={this.props.activeId.includes(element.cat_id) ? "filterSelected" : "filter" } onClick={()=> this.applyFilter(element.cat_id,index)}>{element.cat_title}</a></span>)
   });
 
-  const postsUI = this.showPosts(this.props.posts);
+  const postsUI = this.showPosts(this.props.filteredPosts);
     
   return (
     
@@ -98,6 +109,7 @@ class Home extends React.Component {
           className="searchBox d-inline-block" 
           name="search" 
           autocomplete="off"
+          onChange={this.onSearch}
           onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline-block"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "-4px"; svg_search_shadow.style.opacity = 1; }}
           onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline-block"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "0"; svg_search_shadow.style.opacity = 0.5;}}
           ></input>
@@ -129,6 +141,7 @@ export default connect((store) =>{
         categories: store.categories,
         posts: store.posts,
         activeId: store.activeId,
-        loadCount: store.loadCount
+        loadCount: store.loadCount,
+        filteredPosts: store.filteredPosts
     }
    })(Home);

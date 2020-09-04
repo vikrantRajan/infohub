@@ -136,6 +136,12 @@
     font-weight: 400;
     font-size: 14px;
 }
+.card-text:first-child {
+    margin-bottom:0;
+    padding-bottom:0;
+    font-size:12;
+    font-style: italic;
+}
 
 .card-title:hover {
     color: #47c9e5!important;
