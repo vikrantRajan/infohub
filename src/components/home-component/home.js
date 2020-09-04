@@ -2,11 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { CardColumns,Card } from 'react-bootstrap';
 import  './home.css';
-import { fetchHomeData, setActiveid }from '../../actions/homeactions.js'
+import { fetchHomeData, setActiveid, setLoadCount, setFilterData}from '../../actions/homeactions.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import svgShadow from '../../images/svg-shadow.png';
-
+import config from '../../config';
 
 
 
@@ -17,8 +17,8 @@ class Home extends React.Component {
   }
 
   applyFilter = (id,index) =>{
-      if( id !== 1) {
-          if(this.props.activeId.includes(1)) {
+      if( id !== "1") {
+          if(this.props.activeId.includes("1")) {
               const removeIndex = this.props.activeId.indexOf(1);
               this.props.activeId.splice(removeIndex,1);
           }
@@ -33,7 +33,36 @@ class Home extends React.Component {
       else {
           this.props.activeId.push(id);
   }
+  const filteredData = this.props.posts.filter((p) => this.props.activeId.includes(p.catId));
+      this.props.dispatch(setFilterData(filteredData));
+
       this.props.dispatch(setActiveid( [...this.props.activeId] ));
+  }
+
+  loadCount = () => {
+    const count = this.props.loadCount + 1;
+    this.props.dispatch( setLoadCount(count));
+  }
+
+  showPosts = (data) => {
+   const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
+      return(
+        <Card>
+          <Card.Img variant="top" src={config.IMG + element.image} />
+          <Card.Body>
+            <Card.Title>{element.title}</Card.Title>
+            <Card.Text>
+              {element.post}
+            </Card.Text>
+            <Card.Text>
+            <span className="cat float-left">{element.category}</span> <a href="https://jevelin.shufflehound.com/blog1/2016/11/23/trip-that-youll-never-forget/#comments" className="comment-count">
+                        <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
+                          {element.commentCount}                </a>
+            </Card.Text>
+          </Card.Body>
+        </Card>)
+    })
+    return myArray;
   }
 
   render(){
@@ -47,26 +76,10 @@ class Home extends React.Component {
 
   // console.log(this.props)
   const filterUI = this.props.categories.map((element,index) =>{
-      return( <span className="filterItem"> <a className={this.props.activeId.includes(element.id) ? "filterSelected" : "filter" } onClick={()=> this.applyFilter(element.id,index)}>{element.name}</a></span>)
+      return( <span className="filterItem"> <a className={this.props.activeId.includes(element.cat_id) ? "filterSelected" : "filter" } onClick={()=> this.applyFilter(element.cat_id,index)}>{element.cat_title}</a></span>)
   });
 
-  const postsUI = this.props.posts.map((element,index) => {
-    return(
-      <Card>
-        <Card.Img variant="top" src={element.image} />
-        <Card.Body>
-          <Card.Title>{element.title}</Card.Title>
-          <Card.Text>
-            {element.description}
-          </Card.Text>
-          <Card.Text>
-          <span className="cat float-left">{element.category.name}</span> <a href="https://jevelin.shufflehound.com/blog1/2016/11/23/trip-that-youll-never-forget/#comments" className="comment-count">
-                      <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
-                        {element.comments}                </a>
-          </Card.Text>
-        </Card.Body>
-      </Card>)
-  })
+  const postsUI = this.showPosts(this.props.posts);
     
   return (
     
@@ -102,6 +115,7 @@ class Home extends React.Component {
       <CardColumns>
         {postsUI}
       </CardColumns>
+     { this.props.posts.length > 6 * this.props.loadCount ? ( <button className="load-more" onClick = {() => this.loadCount()}>Load More</button>): (null) }
     </div>
 
   </div>)
@@ -114,6 +128,7 @@ export default connect((store) =>{
     return {
         categories: store.categories,
         posts: store.posts,
-        activeId: store.activeId
+        activeId: store.activeId,
+        loadCount: store.loadCount
     }
    })(Home);

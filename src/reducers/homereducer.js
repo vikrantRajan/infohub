@@ -3,7 +3,8 @@ export default function reducer(state = {
     fetched:false,
     categories:[],
     posts:[],
-    activeId:[1],
+    loadCount:1,
+    activeId:[],
     error:""  
 },action) {
         if(action.type === "FETCH_START") {
@@ -16,6 +17,15 @@ export default function reducer(state = {
         if(action.type === "ACTIVEID") {
           state = { ...state, fetching: false,activeId: action.payload };
         }
+
+        if(action.type === "FILTER") {
+          state = { ...state, fetching: false,posts: action.payload };
+        }
+
+        if(action.type === "LOADCOUNT") {
+          state = { ...state, fetching: false,loadCount: action.payload };
+        }
+
         if(action.type === "ERROR") {
           state = { ...state, fetching: false,error:action.payload };
         }
