@@ -41,6 +41,17 @@
 }
 
 /* SEARCH SVG  */
+.search_bar_container {
+    position: relative;
+}
+.svg_search_shadow {
+    z-index: -9;
+    opacity: 0.8;
+    position: absolute;
+    top: -14px;
+    left: -1px;
+    width: 60px;
+}
 .svg_search {
     width: 50px;
     margin: 0 15px 0 0;
@@ -53,12 +64,12 @@
 }
 
 .svg_search_polygon {
-    fill: #46c9e4;
+    fill: white;
     transition: all 0.3s ease-in-out;
 }
 
 .svg_search_path {
-    fill: white;
+    fill: #c5c5c5;
     transition: all 0.3s ease-in-out;
 }
 
