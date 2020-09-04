@@ -10,7 +10,7 @@ render(){
         <ScrollArrow/>
         <div className="container">
         <div className="footer-logo">
-            <img src={footerLogo} className="footer-logo-image"/>
+            <img src={footerLogo} className="footer-logo-image" alt="infohub-logo"/>
         </div>
         <div className="footer-text">
             This is a section created by students for students<br></br>
