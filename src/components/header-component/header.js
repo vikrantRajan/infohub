@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import  './header.css';
-import headerLogo from '../../images/Header-Logo.png';
 import { fetchHomeData }from '../../actions/homeactions.js'
 class Header extends React.Component {
 
@@ -13,7 +12,6 @@ render(){
     return (<div className="headerSection">
         <div className="container">
         <div className="logo">
-            {/* <img src={headerLogo} className="logo-image" alt="infohub-logo"/> */}
             <svg className="logo-image" viewBox="0 0 452.65 283.37">
 
                 <path class="svg_rotating_logo_polygon" d="M289.32,170.34H227.19l-38.75-48.58,13.83-60.58,56-27,56,27,13.82,60.58Zm-58.28-8h54.43l33.94-42.55L307.3,66.72,258.25,43.1l-49,23.62L197.1,119.79Z"/>
