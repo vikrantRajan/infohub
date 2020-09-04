@@ -15,9 +15,11 @@ render(){
             
         </div>
         <div className="footer-text">
-            This is a section created by students for students<br></br>
-            Our goal is to share remote learning resources for people to grain <br></br>
-            hard skills in order to thrive in the digital and creative industry
+        
+            This is a platform created by students for students.<br></br>
+            Our goal is to share remote learning resources for people to gain <br></br>
+            hard skills in order to thrive in the digital and creative industries.
+
         </div>
         </div>
 
