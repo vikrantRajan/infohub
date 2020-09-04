@@ -9,11 +9,11 @@ class Header extends React.Component {
         this.props.dispatch(fetchHomeData());
     }
 render(){
-    console.log(this.props)
+    // console.log(this.props)
     return (<div className="headerSection">
         <div className="container">
         <div className="logo">
-            <img src={headerLogo} className="logo-image"/>
+            <img src={headerLogo} className="logo-image" alt="infohub-logo"/>
         </div>
         </div>
 
@@ -22,7 +22,7 @@ render(){
 }
 
 export default connect((store) =>{
-    console.log(store);
+    // console.log(store);
     return {
         categories: store.categories,
         posts: store.posts

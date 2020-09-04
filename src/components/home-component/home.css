@@ -13,7 +13,8 @@
     color: #949694;
     padding: 6px 15px!important;
     border-radius: 100px;
-    transition: .3s background,font-weight ease-in-out;
+    /* transition: .3s background,font-weight ease-in-out; */
+    transition: all 0.3s ease-in-out;
     border: 1px solid #ccc;
     cursor: pointer;
 }
@@ -24,6 +25,7 @@
     border: 1px solid #47c9e5!important;
     text-decoration: none;
     cursor: pointer;
+    
 }
 
 .filter-section .filterItem .filterSelected {
@@ -33,29 +35,68 @@
     text-decoration: none;
     padding: 6px 15px!important;
     border-radius: 100px;
-    transition: .3s background,font-weight ease-in-out;
+    /* transition: .3s background,font-weight ease-in-out; */
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
+}
+
+/* SEARCH SVG  */
+.svg_search {
+    width: 50px;
+    margin: 0 15px 0 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.svg_search:hover {
+    opacity: 0.8;
+    transform: rotate(10deg);
+}
+
+.svg_search_polygon {
+    fill: #46c9e4;
+    transition: all 0.3s ease-in-out;
+}
+
+.svg_search_path {
+    fill: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.svg_cancel {
+    width: 50px;
+    display: none;
+    margin: 0px 0 0 -10px;
+}
+.svg_cancel_polygon {
+    fill: #c5c5c5;
 }
 
 .searchBox {
     width: 50px;
-    /* box-sizing: border-box; */
+    height: 50px;
     border: 0;
-    border-radius: 4px;
-    /* font-size: 16px; */
-    /* background-color: white; */
-    background-image: url('../../images/svg-search-blue.svg');
-    /* background-position: 10px 10px; */
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    /* transition: width 0.4s ease-in-out; */
+    border-radius: 0;
+    cursor: pointer;
+    opacity: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #46c9e4;
+    background: none;
+    margin: 0 0px 0 -50px;
+    transition: all 0.3s ease-in-out;
 }
 .searchBox:focus{
-    width:100%;
+    opacity: 1;
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #c5c5c5;
+    border-radius: 0px;
+    background: none;
+    padding: 0 0 0 20px;
+    margin: 0 0 0 -5px;
 }
-  .searchBox:focus + .filters{
-    display: none;
-  }
 
 .card-body {
     /* box-shadow: 0px 0px 10px grey; */

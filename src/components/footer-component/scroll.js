@@ -21,7 +21,7 @@ const ScrollArrow = () =>{
   window.addEventListener('scroll', checkScrollTop)
 
   return (
-    <img src={backToTop} className="backToTop" style={{ display: showScroll ? 'flex' : 'none'}} onClick={scrollTop}></img>  );
+    <img src={backToTop} className="backToTop" style={{ display: showScroll ? 'flex' : 'none'}} onClick={scrollTop} alt="infohub-logo"></img>  );
 }
 
 export default ScrollArrow;
