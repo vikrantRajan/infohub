@@ -77,6 +77,7 @@ class Home extends React.Component {
           type="text" 
           className="searchBox d-inline-block" 
           name="search" 
+          autocomplete="off"
           onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline-block"; }}
           onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline-block"; svg_cancel.style.display = "none" }}
           ></input>
