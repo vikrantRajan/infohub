@@ -45,15 +45,14 @@
     }
 }
 .svg_rotating_logo_polygon {
--webkit-animation: rotating 2s linear infinite;
--moz-animation: rotating 2s linear infinite;
--ms-animation: rotating 2s linear infinite;
--o-animation: rotating 2s linear infinite;
-animation: rotating 2s linear infinite;
+-webkit-animation: rotating 10s ease-in-out;
+-moz-animation: rotating 10s ease-in-out;
+-ms-animation: rotating 10s ease-in-out;
+-o-animation: rotating 10s ease-in-out;
 transform-origin: 57% 37%;
 stroke: white;
 stroke-width: 7px;
-animation: rotating 1s linear infinite;
+animation: rotating 10s ease-in-out;
 fill: white;
 }
 
