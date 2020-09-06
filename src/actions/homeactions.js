@@ -3,7 +3,7 @@ import config from '../config';
 
 export function fetchHomeData() {
     return function(dispatch) {
-        axios.get(`${config.API}index.php`).then((response) =>{
+        axios.get(`http://demo3513052.mockable.io/home`).then((response) =>{
           console.log(response);
             dispatch({type:"HOME", payload:response.data})
           }).catch((e) => {

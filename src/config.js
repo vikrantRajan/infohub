@@ -1,6 +1,6 @@
 const config = {
     API : 'http://api.infohub.com/api/',
-    IMG : 'http://api.infohub.com/imgs/'
+    IMG : 'http://projects.thecdm.ca/c14/imgs/'
   };
   
 //   const prod = {
