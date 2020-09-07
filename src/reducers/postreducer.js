@@ -1,7 +1,7 @@
 export default function postreducer(state = {
-    fetching,
-    fetched,
-    postData
+    fetching : false,
+    fetched : false,
+    postData : {}
 },action) {
         if(action.type === "FETCH_START") {
           state = { ...state, fetching: true };

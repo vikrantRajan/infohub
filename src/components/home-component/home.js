@@ -94,7 +94,7 @@ class Home extends React.Component {
     
   return (
     
-  <div className="homeSection">
+  <div className="homeSection main-white-block container">
     <div className="filter-section row">
 
       <div className="categories w-100">
@@ -136,12 +136,12 @@ class Home extends React.Component {
 }
 
 export default connect((store) =>{
-    // console.log(store);
+    console.log(store);
     return {
-        categories: store.categories,
-        posts: store.posts,
-        activeId: store.activeId,
-        loadCount: store.loadCount,
-        filteredPosts: store.filteredPosts
+        categories: store.HomeDataReducer.categories,
+        posts: store.HomeDataReducer.posts,
+        activeId: store.HomeDataReducer.activeId,
+        loadCount: store.HomeDataReducer.loadCount,
+        filteredPosts: store.HomeDataReducer.filteredPosts
     }
    })(Home);
