@@ -7,6 +7,7 @@ function CommentSubmit(data) {
     const [ formValues, setFormValues] = useState({});
     const [ showToast, setToast] = useState(false);
     const [ message, setMessage] = useState('');
+    const [ error, setError] = useState(false);
     const handleSubmit = (event) => {
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
@@ -14,16 +15,20 @@ function CommentSubmit(data) {
         event.stopPropagation();
       } else{
         event.preventDefault();
-        formValues['post_id'] = data.postId;
-        const check = postComment(formValues);
-        // setToast(true);
-        // if(1) {
-        //     // setMessage('Thank you for leaving a comment! Upon approval the content will be displayed on our website')
-        // }
-        // else {
-        //     setMessage('Error Please Try Again')
-
-        // }
+        formValues['p_id'] = data.postId;
+        postComment(formValues).then((response) => {
+            setToast(true);
+            if(response.data) {
+                setError(false)
+                setMessage('Thank you for leaving a comment! Upon approval the content will be displayed on our website')
+            }
+            else {
+                setError(true)
+                setMessage('Error Please Try Again')
+    
+            }
+        });
+       
       }
       
       setValidated(true);
@@ -37,7 +42,7 @@ function CommentSubmit(data) {
 
   
     return (
-        <div>
+        <div style={{overflow:"hidden"}}>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlTextarea1">
     <Form.Label>Comment</Form.Label>
@@ -52,6 +57,7 @@ function CommentSubmit(data) {
             placeholder="First name"
             onChange={onChange}
             name="author"
+            value={formValues.author}
           />
         </Form.Group>
         <Form.Group as={Col} md="6" controlId="validationCustom02">
@@ -61,24 +67,24 @@ function CommentSubmit(data) {
             type="text"
             placeholder="Email"
             name="email"
+            value={formValues.email}
             onChange={onChange}
           />
           </Form.Group>
           </Form.Row>
           
-        <Button type="submit" size="sm">Submit form</Button>
+        <Button className="float-right" type="submit" size="sm" variant="outline-success" >Submit</Button>
       </Form>
-      <Toast onClose={() => setToast(false)} show={showToast} delay={3000} autohide>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded mr-2"
-              alt="" 
-            />
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+      <Toast onClose={() => setToast(false)} show={showToast} animation={false}  delay={5000} autohide
+      style={ error ? {
+        backgroundColor: '#dc3545',
+        color:'white'
+      } : {
+           backgroundColor: '#28a745',
+        color:'white'
+      }}>
+          
+          <Toast.Body>{message}</Toast.Body>
         </Toast>
   </div>
     );

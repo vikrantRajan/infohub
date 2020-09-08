@@ -4,6 +4,7 @@ import { Media } from 'react-bootstrap'
 import { fetchPostData }from '../../actions/postaction.js'
 import CommentSubmit from './comment-form'
 import profileImg from '../../images/profile.png';
+import {Link} from 'react-router-dom'
 import {
     FacebookShareButton,
     TwitterShareButton,
@@ -57,7 +58,8 @@ class Post extends React.Component {
                     <h2> Post </h2>
                 </div>
                 <div className="title d-display-inline text-right links">
-                    <span> <a className="b-link" style={{ cursor:"pointer"}}> Home </a></span>
+                    <span> 
+      <Link to='/' className="b-link" style={{ cursor:"pointer"}}>Home</Link></span>
                     <span className="b-link pl-1 pr-1"> &gt; </span>
     <span> <a className="b-link font-weight-bold"> {this.props.postData.title}</a> </span>
                 </div>

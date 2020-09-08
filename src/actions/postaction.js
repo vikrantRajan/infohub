@@ -12,14 +12,16 @@ export function fetchPostData(id) {
     }
 }
 
-export function postComment(data) {
-  axios.post(`${config.API}submitcomment.php`, JSON.stringify(data)
+export async function postComment(data) {
+  let r;
+ await axios.post(`${config.API}submitcomment.php`, JSON.stringify(data)
   ).then((response) => {
-    console.log(response);
-    return response;
+    
+    r = response;
   }).catch((e) => {
     return e;
   })
+  return r;
 }
 
  

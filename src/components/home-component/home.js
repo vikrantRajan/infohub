@@ -6,6 +6,8 @@ import { fetchHomeData, setActiveid, setLoadCount, setFilterData}from '../../act
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import svgShadow from '../../images/svg-shadow.png';
+import {Link} from 'react-router-dom'
+
 import config from '../../config';
 
 
@@ -54,6 +56,7 @@ class Home extends React.Component {
 
   showPosts = (data) => {
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
+     const url = `posts/${element.post_id}`;
       return(
         <Card>
           <Card.Img variant="top" src={config.IMG + element.image} />
@@ -61,12 +64,12 @@ class Home extends React.Component {
           <Card.Text>
               by {element.author}
             </Card.Text>
-            <Card.Title>{element.title}</Card.Title>
+            <Card.Title><Link to={url}>{element.title}</Link></Card.Title>
             <Card.Text>
               {element.post}
             </Card.Text>
             <Card.Text>
-            <span className="cat float-left">{element.category}</span> <a href="https://jevelin.shufflehound.com/blog1/2016/11/23/trip-that-youll-never-forget/#comments" className="comment-count">
+            <span className="cat float-left">{element.category}</span> <a  className="comment-count">
                         <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
                           {element.commentCount}                </a>
             </Card.Text>
@@ -94,8 +97,8 @@ class Home extends React.Component {
     
   return (
     
-  <div className="homeSection main-white-block container">
-    <div className="filter-section row">
+  <div className="homeSection main-white-block container text-center">
+    <div className="filter-section">
 
       <div className="categories w-100">
         <span className="search_bar_container">
@@ -110,8 +113,8 @@ class Home extends React.Component {
           name="search" 
           autocomplete="off"
           onChange={this.onSearch}
-          onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline-block"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "-4px"; svg_search_shadow.style.opacity = 1; }}
-          onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline-block"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "0"; svg_search_shadow.style.opacity = 0.5;}}
+          onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "-4px"; svg_search_shadow.style.opacity = 1; }}
+          onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "0"; svg_search_shadow.style.opacity = 0.5;}}
           ></input>
           <svg className="svg_cancel" data-name="Layer 1" viewBox="0 0 97.39 94.95">
              <polygon className="svg_cancel_polygon" points="60.6 38.41 57.77 35.58 48.7 44.65 39.63 35.58 36.8 38.41 45.87 47.48 36.8 56.55 39.63 59.38 48.7 50.3 57.77 59.38 60.6 56.55 51.53 47.48 60.6 38.41" />
