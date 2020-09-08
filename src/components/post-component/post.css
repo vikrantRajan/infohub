@@ -1,0 +1,134 @@
+.breadCrumbs {
+    background-color: #fbfbfb;
+    padding: 0px;
+}
+
+.table-display {
+    min-height: 60px;
+    z-index: 100;
+    position: relative;
+    display: table;
+    padding: 25px 0;
+}
+
+.breadCrumbs .title {
+    display: table-cell;
+    vertical-align: middle;
+    float: none!important;
+}
+
+.breadCrumbs .title h2 {
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: 700;
+    transition: all .3s ease-in-out;
+}
+
+.breadCrumbs .b-link {
+    font-size:12px;
+    color: #8d8d8d!important;
+}
+
+
+.breadCrumbs .b-link:hover {
+    text-decoration:none;
+}
+
+.post-container .post-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: left;
+}
+
+.post-container .post-content{ 
+    color:black!important;
+}
+
+.post-container .post-items, .post-container .post-content{
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #e5e5e5;
+    color: #8d8d8d;
+    margin-bottom:25px;
+    
+}
+
+.heading-title {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.comment-author {
+    font-size: 14px;
+    float: left;
+    padding-right: 10px;
+}
+
+.comment-time {
+    padding-left:10px;
+    border-left: 1px solid #ccc;
+    font-size:10px;
+    color:#8f8f8f
+}
+
+.media {
+    margin-bottom:15px
+}
+
+.posts form {
+    font-size:12px;
+}
+
+.posts form .form-control {
+    font-size:12px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.toast {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    /* color: white; */
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+@media (max-width: 760px) {
+    .table-display{
+        padding:15px 0;
+    }
+    .breadCrumbs .title {
+    display: block;
+    width: 100%;
+    text-align: center!important;
+}
+
+.post-item-one {
+    float:none !important;
+    margin-bottom:10px;
+}
+
+.post-item-two {
+    float:none !important;
+}
+
+.breadCrumbs .title h2{    
+    font-size: 18px!important;
+    margin-bottom: 0!important;
+}
+
+.breadCrumbs .links {
+    font-size:13px !important;
+    text-align: center!important;
+    margin-top: 10px!important;
+}
+}

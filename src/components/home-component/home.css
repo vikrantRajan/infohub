@@ -1,5 +1,5 @@
 .filter-section .filters {
-    display: inline-block;
+    display: inline;
 }
 
 .filter-section .filters .filterItem {
@@ -206,3 +206,9 @@
 .load-more:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: 760px){
+    .load-more { 
+        width:50%;
+    }
+    }

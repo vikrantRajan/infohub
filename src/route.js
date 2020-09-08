@@ -7,12 +7,9 @@ class MainRoute extends React.Component {
 
     render() {
        
-        return (<div className="main-white-block overflowhidden">
-            <div className="container">
+        return (<div className="overflowhidden">
             <Route exact path='/' component={HomeComponent} />
             <Route exact path='/posts/:srno' component={PostComponent} />
-
-            </div>
         </div>
 
         )

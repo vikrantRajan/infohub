@@ -1,5 +1,9 @@
-.App {
-  text-align: center;
+body {
+  font-size: 14px;
+  font-family: "Montserrat";
+    color: #3f3f3f;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .App-logo {
