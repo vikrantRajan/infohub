@@ -1,5 +1,5 @@
 const config = {
-    API : 'http://api.infohub.com/api/',
+    API : 'http://projects.thecdm.ca/c14/api/',
     IMG : 'http://projects.thecdm.ca/c14/imgs/'
   };
   
