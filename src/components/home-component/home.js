@@ -111,7 +111,7 @@ class Home extends React.Component {
           type="text" 
           className="searchBox d-inline-block" 
           name="search" 
-          autocomplete="off"
+          autoComplete="off"
           onChange={this.onSearch}
           onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "-4px"; svg_search_shadow.style.opacity = 1; }}
           onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "0"; svg_search_shadow.style.opacity = 0.5;}}
