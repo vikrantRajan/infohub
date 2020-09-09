@@ -109,6 +109,8 @@
     margin: 0 0 0 -5px;
 }
 
+/* UI POST CARD ELEMENT */
+
 .card-body {
     /* box-shadow: 0px 0px 10px grey; */
     transition: .3s all ease-in-out;
@@ -116,11 +118,12 @@
     padding-right: 13%;
     padding-top: 32px;
     background-color: #fff;
-    box-shadow: 0px 15px 45px -9px rgba(0,0,0,.2);
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,.06);
     text-align: center;
 }
 
 .card-title {
+    transition: .3s all ease-in-out;
     font-size: 28px;
     margin-top: 12px;
     margin-bottom: 14px;
@@ -129,6 +132,7 @@
 }
 
 .card-text {
+    transition: all 0.3s ease-in-out;
     padding-bottom: 28px;
     word-break: break-word;
     text-align: left;
@@ -143,17 +147,15 @@
     font-style: italic;
 }
 
-.card-title:hover {
-    color: #47c9e5!important;
-    cursor: pointer;
-}
-
 .card-text:last-child {
     margin-left: -18%;
     margin-right: 92px;
     padding: 19px 0 19px 18%;
     position: relative;
     border-top: 1px solid #ccc;
+}
+.card-img-top {
+    transition: .3s all ease-in-out;
 }
 
 
@@ -166,19 +168,47 @@
     right: -92px;
     padding: 0 17px;
     border-radius: 100px;
-    transition: .3s all ease-in-out;
+    transition: .1s all ease-in-out;
     float: right;
     color: #8d8d8d!important;
 }
 
-.comment-count:hover {
-    background-color: #47c9e5;
-    text-decoration:none;
-    color:white!important;
+
+.card-title a {
+    transition: .3s all ease-in-out;
+}
+.card:hover .card-body {
+
+    box-shadow: 0px 15px 45px -9px rgba(0,0,0,.2);
+    cursor: pointer;
+    border: none;
 }
 
-.card:hover .card-body {
-    box-shadow: 0 1px 1px 1px rgba(0,0,0,.06);
+.card:hover .card-img-top {
+
+    opacity: 0.9;
+    
+}
+
+.card:hover .comment-count {
+    border: solid 1px #01687c;
+    text-decoration:none;
+    color: #01687c!important;
+    opacity: 0;
+}
+
+.card:hover .card-text:last-child {
+    border-top-color:  #01687c;
+    transform: scale(1.5);
+    padding: 10px 0 30px 0;
+    margin-left: 13%;
+}
+
+.card:hover .card-title a, .card:hover .card-text {
+    letter-spacing: 0.2px;
+    color: #01687c ;
+
+    
 }
 
 .card-columns {
