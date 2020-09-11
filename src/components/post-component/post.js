@@ -54,12 +54,10 @@ class Post extends React.Component {
         return(<div className="posts">
             <div className="breadCrumbs">
                 <div className="container table-display ">
-                <div className="title d-display-inline text-left pl-3">
-                    <h2> Post </h2>
-                </div>
-                <div className="title d-display-inline text-right links">
+                
+                    <div className="title d-display-inline text-right float-left links">
                     <span> 
-      <Link to='/' className="b-link" style={{ cursor:"pointer"}}>Home</Link></span>
+      <Link to='/' className="b-link " style={{ cursor:"pointer"}}>Home</Link></span>
                     <span className="b-link pl-1 pr-1"> &gt; </span>
     <span> <a className="b-link font-weight-bold"> {this.props.postData.title}</a> </span>
                 </div>
@@ -100,7 +98,7 @@ class Post extends React.Component {
                         <div><h2 className="heading-title">Comments</h2>  </div>
                         {comments}
                     </div>) : (null)}
-                    <div className="comments pb-2 mb-3 border-bottom">
+                    <div className="comments pb-2 mb-3">
                         <div><h2 className="heading-title">Leave a comment...</h2>  </div>
                         <CommentSubmit postId={this.props.postData.post_id}/>
                     </div>

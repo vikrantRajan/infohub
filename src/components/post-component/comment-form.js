@@ -42,38 +42,29 @@ function CommentSubmit(data) {
 
   
     return (
-        <div style={{overflow:"hidden"}}>
+    <div style={{overflow:"hidden"}}>
+
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Comment</Form.Label>
-    <Form.Control as="textarea" rows="3" required name="comment" onChange={onChange}/>
-  </Form.Group>
-          <Form.Row>
+
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Comment</Form.Label>
+            <Form.Control as="textarea" rows="3" required name="comment" onChange={onChange}/>
+        </Form.Group>
+
+      <Form.Row>
         <Form.Group as={Col} md="6" controlId="validationCustom01">
           <Form.Label>Name</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="First name"
             onChange={onChange}
             name="author"
             value={formValues.author}
           />
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="validationCustom02">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Email"
-            name="email"
-            value={formValues.email}
-            onChange={onChange}
-          />
-          </Form.Group>
-          </Form.Row>
+      </Form.Row>
           
-        <Button className="float-right" type="submit" size="sm" variant="outline-success" >Submit</Button>
+        <Button className="float-left mt-2" type="submit" size="sm" variant="outline-success" >Submit</Button>
       </Form>
       <Toast onClose={() => setToast(false)} show={showToast} animation={false}  delay={5000} autohide
       style={ error ? {
