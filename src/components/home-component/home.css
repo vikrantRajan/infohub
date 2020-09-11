@@ -259,6 +259,10 @@ MOBILE RESPONSIVE
 
     /* NAVBAR START */
 
+    .searchBox:focus{
+    width: 200px;
+}
+
     .search_bar_container {
         /* display: none; */
     }
