@@ -153,7 +153,7 @@ class Home extends React.Component {
 
     </div>
 
-    <div className="postList pt-5">
+    <div className="postList">
       <CardColumns>
         {postsUI}
       </CardColumns>
