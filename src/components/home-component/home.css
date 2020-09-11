@@ -237,8 +237,80 @@
     opacity: 0.8;
   }
 
-  @media (max-width: 760px){
+.postList {
+    display: block;
+}
+
+@media (max-width: 760px){
     .load-more { 
         width:50%;
     }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+MOBILE RESPONSIVE 
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@media only screen and (max-width: 440px) {
+
+    .post_mobile {
+        width: 90%;
+        height: 100px;
+        margin: 20px auto;
+        box-shadow: -10px 4px 30px -10px rgba(0,0,0,.2);
+        
     }
+
+    .post_mobile .post_mobile_image_container {
+        
+        width: 30%;
+        height: 85%;
+        overflow: hidden;
+        float: left;
+        padding: 15px;
+            
+    }
+
+    /* .post_mobile .post_mobile_image_container .post_mobile_image {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+    } */
+    .post_mobile .post_mobile_image_container .post_mobile_image img {
+        width: 150px;
+        
+    }
+
+    .post_mobile .post_mobile_text_container {
+        width: 70%;
+        display: block;
+        float: left;
+        padding: 5px 15px 0 15px;
+
+    }
+
+    .post_mobile .post_mobile_text_container h1 {
+        font-size: 16px;
+        font-weight: 800;
+        text-align: left;
+        margin: 0 0 1% 0;
+        color: #616161;
+       
+    }
+
+    .post_mobile .post_mobile_text_container h2 {
+        font-size: 10px;
+        font-weight: 400;
+        font-style: italic;
+        text-align: left;
+        color: #8d8d8d;
+        margin: 5% 0 2% 0;
+    }
+
+    .post_mobile_icon, .post_mobile a, .cat {
+        color: #8d8d8d !important;
+    }
+
+}

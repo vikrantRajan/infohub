@@ -57,24 +57,51 @@ class Home extends React.Component {
   showPosts = (data) => {
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
      const url = `posts/${element.post_id}`;
-      return(
-        <Card>
-          <Card.Img variant="top" src={config.IMG + element.image} />
-          <Card.Body>
-          <Card.Text>
-              by {element.author}
-            </Card.Text>
-            <Card.Title><Link to={url}>{element.title}</Link></Card.Title>
-            <Card.Text>
-              {element.post}
-            </Card.Text>
-            <Card.Text>
-            <span className="cat float-left">{element.category}</span> <a  className="comment-count">
-                        <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
-                          {element.commentCount}                </a>
-            </Card.Text>
-          </Card.Body>
-        </Card>)
+     if (window.screen.width > 440) {
+       return (
+        <Link to={url}>
+         <Card>
+           <Card.Img variant="top" src={config.IMG + element.image} />
+           <Card.Body>
+             <Card.Text>
+               by {element.author}
+             </Card.Text>
+             <Card.Title>{element.title}</Card.Title>
+             <Card.Text>
+               {element.post}
+             </Card.Text>
+             <Card.Text>
+               <span className="cat float-left">{element.category}</span> <a className="comment-count">
+                 <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
+                 {element.commentCount}                </a>
+             </Card.Text>
+           </Card.Body>
+         </Card>
+        </Link>
+       )
+     } else if (window.screen.width < 440) {
+       return(
+        <Link to={url}>
+         <div className="post_mobile">
+           <div className="post_mobile_image_container">
+             <div className="post_mobile_image">
+              <img src={config.IMG + element.image} ></img>
+             </div>
+           </div>
+           <div className="post_mobile_text_container">
+             <h2>by {element.author}  </h2>
+             <h1>{element.title}</h1>
+             <span className="cat float-left">{element.category}</span> <a className="">
+               <FontAwesomeIcon icon={faComment} className="pr-1 post_mobile_icon" size="lg" />
+               {element.commentCount}                </a>
+           </div>
+         </div>
+        </Link>
+       )
+
+     }
+     
+      
     })
     return myArray;
   }
