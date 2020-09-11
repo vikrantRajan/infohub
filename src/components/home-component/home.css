@@ -1,5 +1,12 @@
 .filter-section .filters {
-    display: inline;
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.categories {
+    align-items: center;
+    justify-content: center;
 }
 
 .filter-section .filters .filterItem {
@@ -271,13 +278,10 @@ MOBILE RESPONSIVE
         width: 100%;
     }
     
-    .filter-section .categories {
-        height: 80px;
-    }
 
-    .filter-section .categories .filters .filterItem {
+    /* .filter-section .categories .filters .filterItem {
         float: left;
-    }
+    } */
 
     /* NAVBAR END */
 
@@ -341,6 +345,9 @@ MOBILE RESPONSIVE
     .post_mobile_icon, .post_mobile a, .cat {
         color: #8d8d8d !important;
     }
+
+
+    
 
     /* POSTS END */
 

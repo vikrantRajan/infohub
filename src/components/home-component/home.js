@@ -125,9 +125,9 @@ class Home extends React.Component {
   return (
     
   <div className="homeSection main-white-block container text-center">
-    <div className="filter-section">
+    <div className="filter-section navbar-nav-scroll">
 
-      <div className="categories w-100">
+      <div className="categories w-100 navbar-nav bd-navbar-nav flex-row">
         <span className="search_bar_container">
           <svg className="svg_search" data-name="Layer 1" viewBox="0 0 97.39 94.95">
             <polygon className="svg_search_polygon" points="48.7 0 9.64 18.81 0 61.06 27.02 94.95 70.37 94.95 97.39 61.06 87.75 18.81 48.7 0" />
@@ -148,7 +148,7 @@ class Home extends React.Component {
           </svg>
 
         </span>
-        <div className="filters"> {filterUI} </div>
+        <div className="filters nav-item pt-2"> {filterUI} </div>
       </div>
 
     </div>
