@@ -71,9 +71,9 @@ class Home extends React.Component {
                {element.post}
              </Card.Text>
              <Card.Text>
-               <span className="cat float-left">{element.category}</span> <a className="comment-count">
+               <span className="cat float-left">{element.category}</span> <span className="comment-count">
                  <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
-                 {element.commentCount}                </a>
+                 {element.commentCount}                </span>
              </Card.Text>
            </Card.Body>
          </Card>
@@ -85,23 +85,22 @@ class Home extends React.Component {
          <div className="post_mobile">
            <div className="post_mobile_image_container">
              <div className="post_mobile_image">
-              <img src={config.IMG + element.image} ></img>
+              <img src={config.IMG + element.image} alt="info-hub-post"></img>
              </div>
            </div>
            <div className="post_mobile_text_container">
              <h2>by {element.author}  </h2>
              <h1>{element.title}</h1>
-             <span className="cat float-left">{element.category}</span> <a className="">
+             <span className="cat float-left">{element.category}</span> <span className="">
                <FontAwesomeIcon icon={faComment} className="pr-1 post_mobile_icon" size="lg" />
-               {element.commentCount}                </a>
+               {element.commentCount}                </span>
            </div>
          </div>
         </Link>
        )
 
      }
-     
-      
+     return null;
     })
     return myArray;
   }
@@ -117,7 +116,7 @@ class Home extends React.Component {
 
   // console.log(this.props)
   const filterUI = this.props.categories.map((element,index) =>{
-      return( <span className="filterItem"> <a className={this.props.activeId.includes(element.cat_id) ? "filterSelected" : "filter" } onClick={()=> this.applyFilter(element.cat_id,index)}>{element.cat_title}</a></span>)
+      return( <span className="filterItem"> <span className={this.props.activeId.includes(element.cat_id) ? "filterSelected" : "filter" } onClick={()=> this.applyFilter(element.cat_id,index)}>{element.cat_title}</span></span>)
   });
 
   const postsUI = this.showPosts(this.props.filteredPosts);
@@ -133,7 +132,7 @@ class Home extends React.Component {
             <polygon className="svg_search_polygon" points="48.7 0 9.64 18.81 0 61.06 27.02 94.95 70.37 94.95 97.39 61.06 87.75 18.81 48.7 0" />
             <path className="svg_search_path" d="M74.28,69.84a1.75,1.75,0,0,0-.66-1.17L51.69,51.28l1.65-2.06a2.53,2.53,0,0,0,.49-2.14L51.29,35.94a2.51,2.51,0,0,0-1.37-1.71l-10.3-5a2.51,2.51,0,0,0-2.19,0l-10.3,5a2.48,2.48,0,0,0-1.36,1.71L23.22,47.08a2.57,2.57,0,0,0,.49,2.14l7.12,8.92a2.5,2.5,0,0,0,2,1H44.24a2.48,2.48,0,0,0,2-.94L48,55.91,70,73.3a1.7,1.7,0,0,0,1.09.38h.2A1.74,1.74,0,0,0,72.41,73l1.5-1.89A1.77,1.77,0,0,0,74.28,69.84ZM48.65,47l-5.62,7H34l-5.61-7,2-8.78,8.12-3.91,8.11,3.91Z" />
           </svg>
-          <img src={svgShadow} className="svg_search_shadow"></img>
+          <img src={svgShadow} className="svg_search_shadow" alt="search-icon"></img>
           <input 
           type="text" 
           className="searchBox d-inline-block" 

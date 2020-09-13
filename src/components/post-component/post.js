@@ -61,7 +61,7 @@ class Post extends React.Component {
                     <span> 
                             <Link to='/' className="b-link " style={{ cursor: "pointer" }}><FontAwesomeIcon icon={faHome} className="pr-1" size="lg" /> Home</Link></span>
                     <span className="b-link pl-1 pr-1"> &gt; </span>
-    <span> <a className="b-link font-weight-bold"> {this.props.postData.title}</a> </span>
+    <span> <span className="b-link font-weight-bold"> {this.props.postData.title}</span> </span>
                 </div>
             </div>
             </div>
