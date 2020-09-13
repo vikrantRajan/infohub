@@ -1,8 +1,8 @@
 {
   "name": "infohub",
-  "homepage": "https://5f5e79053b4b0e24e928dfb9--quirky-neumann-7293f4.netlify.app/",
+  "homepage": "",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
