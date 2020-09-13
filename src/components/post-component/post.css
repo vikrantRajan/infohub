@@ -1,3 +1,7 @@
+.overflowhidden {
+    overflow-x: hidden;
+}
+
 .breadCrumbs {
     background-color: #fbfbfb;
     padding: 0px;
