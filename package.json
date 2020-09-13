@@ -1,6 +1,5 @@
 {
   "name": "infohub",
-  "homepage": "http://projects.thecdm.ca/c14/new/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
