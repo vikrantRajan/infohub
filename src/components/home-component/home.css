@@ -181,8 +181,9 @@
 }
 
 
-.card-title a {
+.card-title a, .comment-cnt  {
     transition: .3s all ease-in-out;
+    color: #8d8d8d!important;
 }
 .card:hover .card-body {
 
@@ -268,20 +269,12 @@ MOBILE RESPONSIVE
 
     .searchBox:focus{
     width: 200px;
-}
-
-    .search_bar_container {
-        /* display: none; */
     }
 
     .filter-section {
         width: 100%;
+        padding: 0 0 0 20px;
     }
-    
-
-    /* .filter-section .categories .filters .filterItem {
-        float: left;
-    } */
 
     /* NAVBAR END */
 

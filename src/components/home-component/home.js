@@ -91,7 +91,7 @@ class Home extends React.Component {
            <div className="post_mobile_text_container">
              <h2>by {element.author}  </h2>
              <h1>{element.title}</h1>
-             <span className="cat float-left">{element.category}</span> <span className="">
+             <span className="cat float-left">{element.category}</span> <span className="comment-cnt">
                <FontAwesomeIcon icon={faComment} className="pr-1 post_mobile_icon" size="lg" />
                {element.commentCount}                </span>
            </div>
