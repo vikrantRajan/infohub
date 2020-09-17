@@ -107,6 +107,19 @@ a:hover {
     text-decoration:none;
 }
 
+.backButtonDiv {
+    position: absolute;
+    z-index: 111111;
+    top: 30px;
+    left: 20px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.backButton {
+    width: 50px;
+}
+
 @media (max-width: 760px) {
     .table-display{
         padding: 15px 0 0 0;
@@ -138,3 +151,4 @@ a:hover {
     margin: 0 0 0 20px !important;
 }
 }
+
