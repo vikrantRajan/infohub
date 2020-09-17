@@ -55,7 +55,7 @@
     z-index: -9;
     opacity: 0.8;
     position: absolute;
-    top: 0px;
+    top: -12px;
     left: -1px;
     width: 60px;
 }
@@ -273,7 +273,6 @@ MOBILE RESPONSIVE
 
     .filter-section {
         width: 100%;
-        padding: 0 0 0 20px;
     }
 
     /* NAVBAR END */
@@ -289,8 +288,8 @@ MOBILE RESPONSIVE
         display: block;
         width: 90%;
         height: 100px;
-        margin: 20px auto;
-        box-shadow: -10px 4px 30px -10px rgba(0,0,0,.2);
+        margin: 0px auto;
+        box-shadow: 13px 14px 10px -13px rgba(0,0,0,.2)
         
     }
 
