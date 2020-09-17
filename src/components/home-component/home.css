@@ -49,20 +49,24 @@
 
 /* SEARCH SVG  */
 .search_bar_container {
-    position: relative;
+    position: fixed;
+    top: 40px;
+    left: 0px;
 }
 .svg_search_shadow {
     z-index: -9;
     opacity: 0.8;
     position: absolute;
-    top: -12px;
-    left: -1px;
-    width: 60px;
+    top: 25px;
+    left: 15px;
+    width: 50px;
 }
 .svg_search {
-    width: 50px;
-    margin: 0 15px 0 0;
+    
+    width: 40px;
+    margin: 25px 0 20px 15px;
     transition: all 0.3s ease-in-out;
+    
 }
 
 .svg_search:hover {
@@ -273,6 +277,10 @@ MOBILE RESPONSIVE
 
     .filter-section {
         width: 100%;
+        position: fixed;
+        top: 0;
+        padding: 10px 0 0 0;
+        background: rgba(300, 300, 300, 0.95);
     }
 
     /* NAVBAR END */

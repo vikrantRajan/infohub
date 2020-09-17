@@ -58,28 +58,6 @@ class Home extends React.Component {
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
      const url = `posts/${element.post_id}`;
      if (window.matchMedia("(max-width: 440px)").matches) {
-       return (
-        <Link to={url}>
-         <Card>
-           <Card.Img variant="top" src={config.IMG + element.image} />
-           <Card.Body>
-             <Card.Text>
-               by {element.author}
-             </Card.Text>
-             <Card.Title>{element.title}</Card.Title>
-             <Card.Text>
-               {element.post}
-             </Card.Text>
-             <Card.Text>
-               <span className="cat float-left">{element.category}</span> <span className="comment-count">
-                 <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
-                 {element.commentCount}                </span>
-             </Card.Text>
-           </Card.Body>
-         </Card>
-        </Link>
-       )
-     } else {
        return(
         <Link to={url}>
          <div className="post_mobile">
@@ -98,7 +76,28 @@ class Home extends React.Component {
          </div>
         </Link>
        )
-
+     } else {
+       return (
+         <Link to={url}>
+           <Card>
+             <Card.Img variant="top" src={config.IMG + element.image} />
+             <Card.Body>
+               <Card.Text>
+                 by {element.author}
+               </Card.Text>
+               <Card.Title>{element.title}</Card.Title>
+               <Card.Text>
+                 {element.post}
+               </Card.Text>
+               <Card.Text>
+                 <span className="cat float-left">{element.category}</span> <span className="comment-count">
+                   <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
+                   {element.commentCount}                </span>
+               </Card.Text>
+             </Card.Body>
+           </Card>
+         </Link>
+       )
      }
      return null;
     })
@@ -112,6 +111,7 @@ class Home extends React.Component {
   const svg_search_polygon = document.querySelector(".svg_search_polygon");
   const svg_search_path = document.querySelector(".svg_search_path");
   const svg_search_shadow = document.querySelector(".svg_search_shadow");
+  const search_box_container = document.querySelector(".search_bar_container");
   
 
   // console.log(this.props)
@@ -136,8 +136,8 @@ class Home extends React.Component {
         name="search"
         autoComplete="off"
         onChange={this.onSearch}
-        onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "-4px"; svg_search_shadow.style.opacity = 1; }}
-        onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "0"; svg_search_shadow.style.opacity = 0.5; }}
+          onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "5px"; svg_search_shadow.style.opacity = 0; search_box_container.style.backgroundColor = 'white'; search_box_container.style.width = "100%"; search_box_container.style.top = "0px"}}
+          onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "13px"; svg_search_shadow.style.opacity = 0.5; search_box_container.style.backgroundColor = 'transparent'; search_box_container.style.width = "initial"; search_box_container.style.top = "40px"}}
       ></input>
       <svg className="svg_cancel" data-name="Layer 1" viewBox="0 0 97.39 94.95">
         <polygon className="svg_cancel_polygon" points="60.6 38.41 57.77 35.58 48.7 44.65 39.63 35.58 36.8 38.41 45.87 47.48 36.8 56.55 39.63 59.38 48.7 50.3 57.77 59.38 60.6 56.55 51.53 47.48 60.6 38.41" />
