@@ -57,7 +57,7 @@ class Home extends React.Component {
   showPosts = (data) => {
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
      const url = `posts/${element.post_id}`;
-     if (window.matchMedia("(max-width: 440px)").matches) {
+     if (window.screen.width < 440) {
        return(
         <Link to={url}>
          <div className="post_mobile">
