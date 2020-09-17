@@ -99,7 +99,6 @@ class Home extends React.Component {
          </Link>
        )
      }
-     return null;
     })
     return myArray;
   }
