@@ -1,5 +1,6 @@
 .overflowhidden {
     overflow-x: hidden;
+    min-height: 350px;
 }
 
 .breadCrumbs {

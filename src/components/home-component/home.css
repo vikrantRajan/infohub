@@ -49,9 +49,7 @@
 
 /* SEARCH SVG  */
 .search_bar_container {
-    position: fixed;
-    top: 40px;
-    left: 0px;
+    position: relative;
 }
 .svg_search_shadow {
     z-index: -9;
@@ -270,7 +268,11 @@ MOBILE RESPONSIVE
 @media only screen and (max-width: 440px) {
 
     /* NAVBAR START */
-
+    .search_bar_container {
+        position: fixed;
+        top: 40px;
+        left: 0px;
+    }
     .searchBox:focus{
     width: 200px;
     }
