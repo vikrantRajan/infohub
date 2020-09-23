@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import backToTop from '../../images/backtotop-white.svg'
 import backBtn from '../../images/back_btn.png'
+import Spinner from 'react-bootstrap/Spinner'
 import svgShadow from '../../images/svg-shadow.png'
 import {
     FacebookShareButton,
@@ -57,6 +58,10 @@ class Post extends React.Component {
 
         })
         return(<div className="posts">
+            {this.props.fetching ? (
+            <div className="overlay">
+            <Spinner animation="border" variant="primary" />
+            </div>) : (null)}
            <Link to='/'> <div className="backButtonDiv">
       <img src={backBtn} className="backButton" alt="infohub-logo"></img> 
       {/* <img src={svgShadow} className="svg_shadow" alt="infohub_logo"></img> */}
@@ -121,6 +126,8 @@ class Post extends React.Component {
 export default connect((store) =>{
     console.log(store);
     return {
-        postData: store.PostDataReducer.postData
+        postData: store.PostDataReducer.postData,
+        fetching: store.PostDataReducer.fetching,
+        fetched: store.PostDataReducer.fetched
     }
    })(Post);

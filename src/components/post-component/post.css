@@ -3,6 +3,24 @@
     min-height: 350px;
 }
 
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    z-index: 10000;
+}
+
+.spinner-border {
+    top: 40%;
+    left: 45%;
+    position: absolute;
+}
+
 .breadCrumbs {
     background-color: #fbfbfb;
     padding: 0px;
@@ -109,7 +127,7 @@ a:hover {
 
 .backButtonDiv {
     position: absolute;
-    z-index: 111111;
+    z-index: 99;
     top: 30px;
     left: 20px;
     opacity: 1;

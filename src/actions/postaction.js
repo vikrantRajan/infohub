@@ -3,6 +3,8 @@ import config from '../config';
 
 export function fetchPostData(id) {
     return function(dispatch) {
+      dispatch({type:"FETCH_START"})
+
         axios.get(`${config.API}posts.php?p_id=${id}`).then((response) =>{
           console.log(response);
             dispatch({type:"POST", payload:response.data})
