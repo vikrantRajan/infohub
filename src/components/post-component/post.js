@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import backToTop from '../../images/backtotop-white.svg'
+import backBtn from '../../images/back_btn.png'
 import svgShadow from '../../images/svg-shadow.png'
 import {
     FacebookShareButton,
@@ -57,7 +58,7 @@ class Post extends React.Component {
         })
         return(<div className="posts">
            <Link to='/'> <div className="backButtonDiv">
-      <img src={backToTop} className="backButton" alt="infohub-logo"></img> 
+      <img src={backBtn} className="backButton" alt="infohub-logo"></img> 
       {/* <img src={svgShadow} className="svg_shadow" alt="infohub_logo"></img> */}
     </div></Link>
             <div className="breadCrumbs">

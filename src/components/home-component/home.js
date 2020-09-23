@@ -123,12 +123,12 @@ class Home extends React.Component {
   return (
     
   <div className="homeSection main-white-block container text-center">
-    <span className="search_bar_container">
+    <span className="search_bar_container pr-4">
       <svg className="svg_search" data-name="Layer 1" viewBox="0 0 97.39 94.95">
         <polygon className="svg_search_polygon" points="48.7 0 9.64 18.81 0 61.06 27.02 94.95 70.37 94.95 97.39 61.06 87.75 18.81 48.7 0" />
         <path className="svg_search_path" d="M74.28,69.84a1.75,1.75,0,0,0-.66-1.17L51.69,51.28l1.65-2.06a2.53,2.53,0,0,0,.49-2.14L51.29,35.94a2.51,2.51,0,0,0-1.37-1.71l-10.3-5a2.51,2.51,0,0,0-2.19,0l-10.3,5a2.48,2.48,0,0,0-1.36,1.71L23.22,47.08a2.57,2.57,0,0,0,.49,2.14l7.12,8.92a2.5,2.5,0,0,0,2,1H44.24a2.48,2.48,0,0,0,2-.94L48,55.91,70,73.3a1.7,1.7,0,0,0,1.09.38h.2A1.74,1.74,0,0,0,72.41,73l1.5-1.89A1.77,1.77,0,0,0,74.28,69.84ZM48.65,47l-5.62,7H34l-5.61-7,2-8.78,8.12-3.91,8.11,3.91Z" />
       </svg>
-      <img src={svgShadow} className="svg_search_shadow" alt="search-icon"></img>
+      <img src={svgShadow} className="svg_search_shadow pr-2" alt="search-icon"></img>
       <input
         type="text"
         className="searchBox d-inline-block"
@@ -136,14 +136,14 @@ class Home extends React.Component {
         autoComplete="off"
         onChange={this.onSearch}
           onFocus={() => { navigation.style.opacity = "0"; navigation.style.display = "none"; svg_cancel.style.display = "inline"; svg_search_path.style.fill = "white"; svg_search_polygon.style.fill = "#46c9e4"; svg_search_shadow.style.left = "5px"; svg_search_shadow.style.opacity = 0; search_box_container.style.backgroundColor = 'white'; search_box_container.style.width = "100%"; search_box_container.style.top = "0px"}}
-          onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "13px"; svg_search_shadow.style.opacity = 0.5; search_box_container.style.backgroundColor = 'transparent'; search_box_container.style.width = "initial"; search_box_container.style.top = "40px"}}
+          onBlur={() => { navigation.style.opacity = "1"; navigation.style.display = "inline"; svg_cancel.style.display = "none"; svg_search_path.style.fill = "#9296a4"; svg_search_polygon.style.fill = "white"; svg_search_shadow.style.left = "18px"; svg_search_shadow.style.opacity = 0.5; search_box_container.style.backgroundColor = 'transparent'; search_box_container.style.width = "initial"; search_box_container.style.top = window.screen.width < 440 ? "40px" :"-7px"}}
       ></input>
       <svg className="svg_cancel" data-name="Layer 1" viewBox="0 0 97.39 94.95">
         <polygon className="svg_cancel_polygon" points="60.6 38.41 57.77 35.58 48.7 44.65 39.63 35.58 36.8 38.41 45.87 47.48 36.8 56.55 39.63 59.38 48.7 50.3 57.77 59.38 60.6 56.55 51.53 47.48 60.6 38.41" />
       </svg>
     </span>
 
-    <div className="filter-section navbar-nav-scroll">
+    <div className="filter-section navbar-nav-scroll d-inline-block">
       <div className="categories w-100 navbar-nav bd-navbar-nav flex-row">
         <div className="filters nav-item pt-2">{filterUI}</div>
       </div>
