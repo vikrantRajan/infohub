@@ -7,10 +7,8 @@ import profileImg from '../../images/profile.png';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
-import backToTop from '../../images/backtotop-white.svg'
 import backBtn from '../../images/back_btn.png'
 import Spinner from 'react-bootstrap/Spinner'
-import svgShadow from '../../images/svg-shadow.png'
 import {
     FacebookShareButton,
     TwitterShareButton,
