@@ -5,8 +5,10 @@ import  './home.css';
 import { fetchHomeData, setActiveid, setLoadCount, setFilterData}from '../../actions/homeactions.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
+import { faStar } from '@fortawesome/free-regular-svg-icons'
 import svgShadow from '../../images/svg-shadow.png';
-import {Link} from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner'
+import {Link} from 'react-router-dom';
 
 import config from '../../config';
 
@@ -20,8 +22,9 @@ class Home extends React.Component {
 
   onSearch = (e) => {
     const text= e.target.value.toLowerCase();
-     const filteredData = this.props.posts.filter((p) => p.title.toLowerCase().includes(text) ||
+     const filteredData = this.props.posts.filter((p) => p.title.toLowerCase().includes(text) || p.post &&
      p.post.toLowerCase().includes(text) ||
+     p.catId.toLowerCase().includes(text) ||
      p.author.toLowerCase().includes(text)); 
      this.props.dispatch(setFilterData(filteredData));
   }
@@ -56,7 +59,14 @@ class Home extends React.Component {
 
   showPosts = (data) => {
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
-     const url = `posts/${element.post_id}`;
+     let duedate;
+     if(element.due_dt) {
+     let date_first = element.due_dt.replace("T", " ");
+     let date = date_first.replace("Z", " UTC");
+     date = new Date(date);
+     duedate = date.toDateString() + " " + date.toLocaleTimeString();
+    }
+     const url = element.catId != 1 ? `posts/${element.post_id}` : element.url;
      if (window.screen.width < 440) {
        return(
         <Link to={url}>
@@ -68,9 +78,16 @@ class Home extends React.Component {
            </div>
            <div className="post_mobile_text_container">
              <h2>by {element.author}  </h2>
+             {
+                 element.catId == 2 ?
+                 element.due_dt ? (  <h2>
+                  due by {duedate}
+                </h2>) :(<h2>No due date</h2>) 
+                : (null)
+               }
              <h1>{element.title}</h1>
              <span className="cat float-left">{element.category}</span> <span className="comment-cnt">
-               <FontAwesomeIcon icon={faComment} className="pr-1 post_mobile_icon" size="lg" />
+               <FontAwesomeIcon icon={element.catId == 2 ? faStar : faComment} className="pr-1 post_mobile_icon" size="lg" />
                {element.commentCount}                </span>
            </div>
          </div>
@@ -78,20 +95,29 @@ class Home extends React.Component {
        )
      } else {
        return (
-         <Link to={url}>
+         <Link to={url} >
            <Card>
              <Card.Img variant="top" src={config.IMG + element.image} />
-             <Card.Body>
+             <Card.Body bsPrefix={ element.catId == 2 ? 'card-body assign' : 'card-body'}>
                <Card.Text>
                  by {element.author}
                </Card.Text>
+               {
+                 element.catId == 2? 
+                 element.due_dt ?
+                 (  <Card.Text>
+                  due by {duedate}
+                </Card.Text>) 
+                :(<Card.Text> No due date</Card.Text>)
+                : (null)
+               }
                <Card.Title>{element.title}</Card.Title>
                <Card.Text>
                  {element.post}
                </Card.Text>
                <Card.Text>
                  <span className="cat float-left">{element.category}</span> <span className="comment-count">
-                   <FontAwesomeIcon icon={faComment} className="pr-1" size="lg" />
+                   <FontAwesomeIcon icon={element.catId == 2 ? faStar : faComment} className="pr-1" size="lg" />
                    {element.commentCount}                </span>
                </Card.Text>
              </Card.Body>
@@ -124,6 +150,10 @@ class Home extends React.Component {
     
   <div className="homeSection main-white-block container text-center">
     <span className="search_bar_container pr-4">
+      {this.props.fetching ? (
+            <div className="overlay">
+            <Spinner animation="border" variant="primary" />
+            </div>) : (null)}
       <svg className="svg_search" data-name="Layer 1" viewBox="0 0 97.39 94.95">
         <polygon className="svg_search_polygon" points="48.7 0 9.64 18.81 0 61.06 27.02 94.95 70.37 94.95 97.39 61.06 87.75 18.81 48.7 0" />
         <path className="svg_search_path" d="M74.28,69.84a1.75,1.75,0,0,0-.66-1.17L51.69,51.28l1.65-2.06a2.53,2.53,0,0,0,.49-2.14L51.29,35.94a2.51,2.51,0,0,0-1.37-1.71l-10.3-5a2.51,2.51,0,0,0-2.19,0l-10.3,5a2.48,2.48,0,0,0-1.36,1.71L23.22,47.08a2.57,2.57,0,0,0,.49,2.14l7.12,8.92a2.5,2.5,0,0,0,2,1H44.24a2.48,2.48,0,0,0,2-.94L48,55.91,70,73.3a1.7,1.7,0,0,0,1.09.38h.2A1.74,1.74,0,0,0,72.41,73l1.5-1.89A1.77,1.77,0,0,0,74.28,69.84ZM48.65,47l-5.62,7H34l-5.61-7,2-8.78,8.12-3.91,8.11,3.91Z" />
@@ -168,6 +198,7 @@ export default connect((store) =>{
         posts: store.HomeDataReducer.posts,
         activeId: store.HomeDataReducer.activeId,
         loadCount: store.HomeDataReducer.loadCount,
-        filteredPosts: store.HomeDataReducer.filteredPosts
+        filteredPosts: store.HomeDataReducer.filteredPosts,
+        fetching:store.HomeDataReducer.fetching
     }
    })(Home);

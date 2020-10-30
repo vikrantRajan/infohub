@@ -3,6 +3,8 @@ import config from '../config';
 
 export function fetchHomeData() {
     return function(dispatch) {
+      dispatch({type:"FETCH_START"})
+
         axios.get(`${config.API}index.php`).then((response) =>{
           console.log(response);
             dispatch({type:"HOME", payload:response.data})

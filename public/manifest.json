@@ -3,17 +3,17 @@
   "name": "Learn to learn",
   "icons": [
     {
-      "src": "/favicons/logo48.png",
+      "src": "/c15/infohub/favicons/logo48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "/favicons/logo192.png",
+      "src": "/c15/infohub/favicons/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/favicons/logo512.png",
+      "src": "/c15/infohub/favicons/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

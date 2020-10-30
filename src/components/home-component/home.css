@@ -132,6 +132,10 @@
     text-align: center;
 }
 
+.card-body.assign {
+    padding: 1.75em 3.75em 5.75em 3.75em !important;
+}
+
 .card-title {
     transition: .3s all ease-in-out;
     font-size: 28px;

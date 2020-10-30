@@ -8,8 +8,8 @@ class MainRoute extends React.Component {
     render() {
        
         return (<div className="overflowhidden">
-            <Route exact path='/' component={HomeComponent} />
-            <Route exact path='/posts/:srno' component={PostComponent} />
+            <Route exact path='/c15/infohub/' component={HomeComponent} />
+            <Route exact path='/c15/infohub/posts/:srno' component={PostComponent} />
         </div>
 
         )

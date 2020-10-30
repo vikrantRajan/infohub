@@ -69,7 +69,7 @@ class Post extends React.Component {
                 
                     <div className="title d-display-inline text-right float-left links">
                     <span> 
-                            <Link to='/' className="b-link " style={{ cursor: "pointer" }}><FontAwesomeIcon icon={faHome} className="pr-1" size="lg" /> Home</Link></span>
+                            <Link to='/c15/infohub/' className="b-link " style={{ cursor: "pointer" }}><FontAwesomeIcon icon={faHome} className="pr-1" size="lg" /> Home</Link></span>
                     <span className="b-link pl-1 pr-1"> &gt; </span>
     <span> <span className="b-link font-weight-bold"> {this.props.postData.title}</span> </span>
                 </div>
