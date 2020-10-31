@@ -60,7 +60,7 @@ class Post extends React.Component {
             <div className="overlay">
             <Spinner animation="border" variant="primary" />
             </div>) : (null)}
-           <Link to='/'> <div className="backButtonDiv">
+           <Link to='/c15/infohub'> <div className="backButtonDiv">
       <img src={backBtn} className="backButton" alt="infohub-logo"></img> 
       {/* <img src={svgShadow} className="svg_shadow" alt="infohub_logo"></img> */}
     </div></Link>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import {connect} from 'react-redux'
 import { CardColumns,Card } from 'react-bootstrap';
 import  './home.css';
@@ -9,7 +9,7 @@ import { faStar } from '@fortawesome/free-regular-svg-icons'
 import svgShadow from '../../images/svg-shadow.png';
 import Spinner from 'react-bootstrap/Spinner'
 import {Link} from 'react-router-dom';
-
+import {useHistory} from 'react-router-dom';
 import config from '../../config';
 
 
@@ -57,6 +57,19 @@ class Home extends React.Component {
     this.props.dispatch( setLoadCount(count));
   }
 
+  redirect = (element) => {
+    console.log(element);
+    if(element.catId == 2) {
+      window.open(
+        element.url,
+        '_blank' // <- This is what makes it open in a new window.
+      );
+    } else {
+      const url = `posts/${element.post_id}`;
+      this.props.history.push(url);
+    }
+  }
+
   showPosts = (data) => {
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
      let duedate;
@@ -66,11 +79,9 @@ class Home extends React.Component {
      date = new Date(date);
      duedate = date.toDateString() + " " + date.toLocaleTimeString();
     }
-     const url = element.catId != 1 ? `posts/${element.post_id}` : element.url;
      if (window.screen.width < 440) {
        return(
-        <Link to={url}>
-         <div className="post_mobile">
+         <div className="post_mobile" onClick={this.redirect(element)}>
            <div className="post_mobile_image_container">
              <div className="post_mobile_image">
               <img src={config.IMG + element.image} alt="info-hub-post"></img>
@@ -91,11 +102,10 @@ class Home extends React.Component {
                {element.commentCount}                </span>
            </div>
          </div>
-        </Link>
        )
      } else {
        return (
-         <Link to={url} >
+         <div onClick={() => {this.redirect(element)}} >
            <Card>
              <Card.Img variant="top" src={config.IMG + element.image} />
              <Card.Body bsPrefix={ element.catId == 2 ? 'card-body assign' : 'card-body'}>
@@ -122,7 +132,7 @@ class Home extends React.Component {
                </Card.Text>
              </Card.Body>
            </Card>
-         </Link>
+           </div>
        )
      }
     })
