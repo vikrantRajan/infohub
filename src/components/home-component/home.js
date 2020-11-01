@@ -81,7 +81,7 @@ class Home extends React.Component {
     }
      if (window.screen.width < 440) {
        return(
-         <div className="post_mobile" onClick={this.redirect(element)}>
+         <div className="post_mobile" onClick={() => {this.redirect(element)}}>
            <div className="post_mobile_image_container">
              <div className="post_mobile_image">
               <img src={config.IMG + element.image} alt="info-hub-post"></img>
@@ -97,7 +97,7 @@ class Home extends React.Component {
                 : (null)
                }
              <h1>{element.title}</h1>
-             <span className="cat float-left">{element.category}</span> <span className="comment-cnt">
+             <span className="cat float-left" style = {element.catId == 2 ? { fontSize: '10px'}: {fontSize : '14px'}}>{element.category}</span> <span className="comment-cnt" style = {element.catId == 2 ? { fontSize: '12px'}: {fontSize : '14px'}}>
                <FontAwesomeIcon icon={element.catId == 2 ? faStar : faComment} className="pr-1 post_mobile_icon" size="lg" />
                {element.commentCount}                </span>
            </div>
