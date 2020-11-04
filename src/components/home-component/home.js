@@ -1,6 +1,6 @@
-import React, {useCallback} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
-import { CardColumns,Card } from 'react-bootstrap';
+import { CardColumns,Card, Alert } from 'react-bootstrap';
 import  './home.css';
 import { fetchHomeData, setActiveid, setLoadCount, setFilterData}from '../../actions/homeactions.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,8 +8,6 @@ import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faStar } from '@fortawesome/free-regular-svg-icons'
 import svgShadow from '../../images/svg-shadow.png';
 import Spinner from 'react-bootstrap/Spinner'
-import {Link} from 'react-router-dom';
-import {useHistory} from 'react-router-dom';
 import config from '../../config';
 
 
@@ -71,6 +69,7 @@ class Home extends React.Component {
   }
 
   showPosts = (data) => {
+    
    const myArray = data.slice(0,6 * this.props.loadCount).map((element,index) => {
      let duedate;
      if(element.due_dt) {
@@ -191,7 +190,9 @@ class Home extends React.Component {
 
     <div className="postList">
       <CardColumns>
-        {postsUI}
+        {this.props.posts.filteredPosts > 0 ? postsUI : (<Alert variant='info'>
+    No posts found for the selected category!
+  </Alert>)}
       </CardColumns>
      { this.props.posts.length > 6 * this.props.loadCount ? ( <button className="load-more" onClick = {() => this.loadCount()}>Load More</button>): (null) }
     </div>
