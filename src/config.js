@@ -1,5 +1,5 @@
 const config = {
-    API : 'https://projects.thecdm.ca/c15/adm/api/',
+    API : 'http://localhost/infohub2020/api/',
     IMG : 'https://projects.thecdm.ca/c15/adm/imgs/'
   };
   

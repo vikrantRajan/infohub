@@ -56,6 +56,9 @@ render(){
             </svg>
 
         </div>
+        {/* <a href="#" className="floatBtn">
+<i className="fa fa-plus my-float"></i>
+</a> */}
         </div>
 
     </div>)

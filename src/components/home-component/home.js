@@ -9,6 +9,7 @@ import { faStar } from '@fortawesome/free-regular-svg-icons'
 import svgShadow from '../../images/svg-shadow.png';
 import Spinner from 'react-bootstrap/Spinner'
 import config from '../../config';
+import SuggestionModal from './suggestionbox';
 
 
 
@@ -187,12 +188,13 @@ class Home extends React.Component {
         <div className="filters nav-item pt-2">{filterUI}</div>
       </div>
     </div>
-
+      <SuggestionModal/>
     <div className="postList">
       <CardColumns>
-        {this.props.posts.filteredPosts > 0 ? postsUI : (<Alert variant='info'>
+        { postsUI }
+        {/* {this.props.posts.filteredPosts > 0 ? postsUI : (<Alert variant='info'>
     No posts found for the selected category!
-  </Alert>)}
+  </Alert>)} */}
       </CardColumns>
      { this.props.posts.length > 6 * this.props.loadCount ? ( <button className="load-more" onClick = {() => this.loadCount()}>Load More</button>): (null) }
     </div>

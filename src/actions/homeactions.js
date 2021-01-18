@@ -33,4 +33,16 @@ export function setActiveid(id) {
 
   }
 }
+
+export async function postSuggestion(data) {
+  let r;
+ await axios.post(`${config.API}submitsuggestion.php`, JSON.stringify(data)
+  ).then((response) => {
+    
+    r = response;
+  }).catch((e) => {
+    return e;
+  })
+  return r;
+}
  
